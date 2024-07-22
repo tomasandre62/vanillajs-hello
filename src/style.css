@@ -1,1 +1,15 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  text-align: center;
+  width: 60%;
+}
+
+.container h1 {
+  margin: 0;
+}
