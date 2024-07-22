@@ -1,23 +1,27 @@
-function generateRandomExcuse() {
-  const excuses = [
-    "Mi perro se comió mi tarea",
-    "Tuve una emergencia familiar",
-    "El perro del vecino se comió mi tarea mientras la llevaba a casa",
-    "Me enfermé",
-    "Olvidé que tenía tarea",
-    "No tuve tiempo para hacerla",
-    "Tuve problemas con el internet",
-    "No entendí la tarea",
-    "Tuve que ayudar a mi abuela a atrapar a un ladrón en su casa",
-    "Me quedé dormido estudiando y no me di cuenta de la hora"
+function generateExcuse() {
+  const who = ["El perro", "Mi abuela", "El cartero", "Mi pájaro"];
+  const action = ["comió", "orinó", "rompió", "destruyó"];
+  const what = ["mi tarea", "mi teléfono", "el auto"];
+  const when = [
+    "antes de la clase",
+    "mientras dormía",
+    "mientras hacía ejercicio",
+    "durante la hora del almuerzo",
+    "mientras rezaba"
   ];
 
-  const randomIndex = Math.floor(Math.random() * excuses.length);
-  return excuses[randomIndex];
+  const randomIndexWho = Math.floor(Math.random() * who.length);
+  const randomIndexAction = Math.floor(Math.random() * action.length);
+  const randomIndexWhat = Math.floor(Math.random() * what.length);
+  const randomIndexWhen = Math.floor(Math.random() * when.length);
+
+  const excuse = `${who[randomIndexWho]} ${action[randomIndexAction]} ${what[randomIndexWhat]} ${when[randomIndexWhen]}`;
+  return excuse;
 }
 
-window.onload = function() {
-  const excuse = generateRandomExcuse();
-  const heading = document.querySelector(".excusa"); // Selecciona el elemento h1
-  heading.textContent = excuse; // Asigna la excusa al contenido del h1
-};
+function displayExcuse() {
+  const excuseElement = document.getElementById("excuse");
+  excuseElement.innerHTML = generateExcuse();
+}
+
+window.onload = displayExcuse;
